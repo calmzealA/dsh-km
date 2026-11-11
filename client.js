@@ -295,6 +295,8 @@ window.__ModuleLoader__.load({
 .dsh-km-muted{color:var(--dsw-alias-text-secondary,#57606a)}
 .dsh-km-entry{display:flex;align-items:center;gap:6px;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:4px 6px;border-radius:6px}
 .dsh-km-entry:hover{background:var(--dsw-alias-bg-hover,#f3f5f7)}
+.dsh-km-icon-btn{display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:var(--dsw-alias-text-secondary,#57606a);border-radius:6px;padding:4px 6px;cursor:pointer}
+.dsh-km-icon-btn:hover{background:var(--dsw-alias-bg-hover,#f3f5f7);color:var(--dsw-alias-text-primary,#1f2328)}
 .dsh-km-settings{padding:18px 20px;max-width:760px;overflow:auto;height:100%}
 .dsh-km-settings h2{margin:0 0 6px;font-size:16px}
 .dsh-km-settings p{line-height:1.7;color:var(--dsw-alias-text-secondary,#57606a)}
@@ -883,7 +885,7 @@ window.__ModuleLoader__.load({
      * ------------------------------------------------------------------ */
 
     return {
-      inject: ['slots', 'locale'],
+      inject: ['slots', 'locale', 'layout'],
       apply(ctx) {
         try {
           const bound = ctx.locale.bind('dsh-km')
@@ -904,7 +906,7 @@ window.__ModuleLoader__.load({
 
         const Entry = () => {
           const open = () => {
-            const layout = ctx.get ? ctx.get('layout') : ctx.layout
+            const layout = ctx.layout ?? (ctx.get ? ctx.get('layout') : undefined)
             if (layout && typeof layout.selectPanel === 'function') layout.selectPanel('dsh-km')
           }
           return h(
@@ -915,11 +917,38 @@ window.__ModuleLoader__.load({
           )
         }
 
+        const HeaderEntry = () => {
+          const open = () => {
+            const layout = ctx.layout ?? (ctx.get ? ctx.get('layout') : undefined)
+            if (layout && typeof layout.selectPanel === 'function') layout.selectPanel('dsh-km')
+          }
+          return h(
+            'button',
+            {
+              className: 'dsh-km-icon-btn',
+              type: 'button',
+              onClick: open,
+              title: t('openPanel'),
+              'aria-label': t('openPanel'),
+            },
+            h(BookIcon, { size: 16 }),
+          )
+        }
+
         ctx.effect(() =>
           ctx.slots.inject('sidebar.footer.action', () =>
             ctx.slots.register(
               { name: 'sidebar.footer.action', id: 'dsh-km', order: 20, label: () => t('entryLabel') },
               Entry,
+            ),
+          ),
+        )
+
+        ctx.effect(() =>
+          ctx.slots.inject('conversation.session.header.utilities', () =>
+            ctx.slots.register(
+              { name: 'conversation.session.header.utilities', id: 'dsh-km', order: 20, label: () => t('entryLabel') },
+              HeaderEntry,
             ),
           ),
         )
