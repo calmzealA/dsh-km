@@ -904,18 +904,7 @@ window.__ModuleLoader__.load({
           ctx.effect(() => ctx.locale.register('dsh-km', language, dictionary))
         }
 
-        const Entry = () => {
-          const open = () => {
-            const layout = ctx.layout ?? (ctx.get ? ctx.get('layout') : undefined)
-            if (layout && typeof layout.selectPanel === 'function') layout.selectPanel('dsh-km')
-          }
-          return h(
-            'button',
-            { className: 'dsh-km-entry', type: 'button', onClick: open, title: t('openPanel') },
-            h(BookIcon, { size: 16 }),
-            h('span', null, t('entryLabel')),
-          )
-        }
+        const SidebarIcon = props => h(BookIcon, { size: (props && props.size) || 18 })
 
         const HeaderEntry = () => {
           const open = () => {
@@ -936,10 +925,10 @@ window.__ModuleLoader__.load({
         }
 
         ctx.effect(() =>
-          ctx.slots.inject('sidebar.footer.action', () =>
+          ctx.slots.inject('sidebar.panellist', () =>
             ctx.slots.register(
-              { name: 'sidebar.footer.action', id: 'dsh-km', order: 20, label: () => t('entryLabel') },
-              Entry,
+              { name: 'sidebar.panellist', id: 'dsh-km', order: 2, label: () => t('entryLabel') },
+              SidebarIcon,
             ),
           ),
         )

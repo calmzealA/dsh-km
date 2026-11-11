@@ -68,7 +68,7 @@ test('loads as a Web client module and registers three slots', () => {
     },
   }
   module.apply(ctx)
-  assert.ok(slots.includes('sidebar.footer.action'))
+  assert.ok(slots.includes('sidebar.panellist'))
   assert.ok(slots.includes('main:dsh-km'))
   assert.ok(slots.includes('settings.section:dsh-km'))
 })
