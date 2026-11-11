@@ -1,0 +1,68 @@
+{
+  "name": "dsh-km",
+  "version": "0.1.0",
+  "description": "Local-first knowledge base for DeepSeek Harness: workspace Markdown notes with provenance, review status, BM25 search, and four km_* tools.",
+  "type": "module",
+  "license": "MIT",
+  "author": "老陈聊AI",
+  "homepage": "https://github.com/calmzealA/dsh-km#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calmzealA/dsh-km.git"
+  },
+  "bugs": {
+    "url": "https://github.com/calmzealA/dsh-km/issues"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.2-rc.1 <0.3.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "market",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "knowledge-base",
+    "knowledge-management",
+    "markdown",
+    "pkm",
+    "bm25",
+    "notes"
+  ],
+  "scripts": {
+    "test": "node --test test/",
+    "eval": "node test/eval-search.mjs",
+    "pack:check": "npm pack --dry-run"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}

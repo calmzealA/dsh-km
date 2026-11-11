@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="dsh-km knowledge base">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f3f46"/>
+      <stop offset="1" stop-color="#155e63"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <path d="M64 72c0-7.7 6.3-14 14-14h42l14 16h44c7.7 0 14 6.3 14 14v16H64V72z" fill="#9be3d6" opacity="0.55"/>
+  <path d="M64 88h128v88c0 7.7-6.3 14-14 14H78c-7.7 0-14-6.3-14-14V88z" fill="#f4fbf8"/>
+  <path d="M96 88v102M128 88v102" stroke="#0f3f46" stroke-opacity="0.18" stroke-width="3"/>
+  <circle cx="96" cy="122" r="9" fill="#0f766e"/>
+  <circle cx="160" cy="122" r="9" fill="#0f766e"/>
+  <circle cx="128" cy="160" r="9" fill="#0f766e"/>
+  <path d="M105 122h46M100 130l22 24M156 130l-22 24" stroke="#0f766e" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

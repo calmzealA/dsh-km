@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "title": {
+    "en": "dsh-km",
+    "zh": "dsh-km 知识库"
+  },
+  "description": {
+    "en": "Local-first knowledge base for DeepSeek Harness: workspace Markdown notes with provenance, review status, BM25 search, and four km_* tools.",
+    "zh": "DeepSeek Harness 的本地知识库：工作区 Markdown 笔记，带来源、审核状态、BM25 检索与 4 个 km_* 工具。"
+  },
+  "plugins": [
+    {
+      "name": "dsh-km",
+      "title": {
+        "en": "dsh-km",
+        "zh": "dsh-km 知识库"
+      },
+      "description": {
+        "en": "Local-first knowledge base for DeepSeek Harness: workspace Markdown notes with provenance, review status, BM25 search, and four km_* tools.",
+        "zh": "DeepSeek Harness 的本地知识库：工作区 Markdown 笔记，带来源、审核状态、BM25 检索与 4 个 km_* 工具。"
+      },
+      "icon": "icon.svg",
+      "author": "老陈聊AI",
+      "homepage": "https://github.com/calmzealA/dsh-km#readme",
+      "repository": {
+        "url": "https://github.com/calmzealA/dsh-km"
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794363142,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.1 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}

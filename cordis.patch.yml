@@ -1,0 +1,13 @@
+# Mount dsh-km into the profile. All values are ordinary defaults; the
+# Settings page writes non-secret overrides to $DSH_HOME/dsh-km/settings.json,
+# and a key set here always wins over that file.
+- insert:
+    - id: dsh-km
+      name: dsh-km
+      config:
+        vaultDir: ''
+        maxNoteBytes: 1048576
+        searchTopK: 8
+        maxResultChars: 6000
+        autoCreate: true
+        watch: true
